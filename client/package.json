@@ -1,0 +1,17 @@
+{
+  "name": "caos-lsp-client",
+  "description": "VSCode part of a language server",
+  "author": "Robin Duckett",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publisher": "robinduckett",
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^6.1.3"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.43.0"
+  }
+}

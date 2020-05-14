@@ -1,0 +1,273 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "CAOS",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#expression"
+		},
+		{
+			"include": "#variable"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#legacy"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.caos",
+					"match": "(\\*).*$\n?"
+				}
+			]
+		},
+		"expression": {
+			"patterns": [
+				{
+					"name": "keyword.operator.comparison.caos",
+					"match": "\\b(eq|ne)\\b"
+				},
+				{
+					"name": "keyword.operator.comparison.symbols.caos",
+					"match": "(=|!=)"
+				},
+				{
+					"name": "keyword.operator.relational.caos",
+					"match": "\\b(gt|ge|lt|le)\\b"
+				},
+				{
+					"name": "keyword.operator.relational.symbols.caos",
+					"match": "(<=|>=|<>|<|>)"
+				}
+			]
+		},
+		"variable": {
+			"patterns": [
+				{
+					"match": "\\b[vo][av][0-9]{2}\\b",
+					"name": "variable"
+				}
+			]
+		},
+		"literals": {
+			"patterns": [
+				{
+					"match": "\\b[0-9]+\\b",
+					"name": "constant.numeric"
+				}
+			]
+		},
+		"legacy": {
+			"patterns": [
+				{
+					"comment": "Creation Macros",
+					"name": "entity.name.function",
+					"match": "\\b(new: scen|new: cbtn|new: part|new: lift|new: bkbd|token|new: gene|new: cbub|new: bbtx)\\b"
+				},
+				{
+					"comment": "Specific Pointers",
+					"name": "variable.parameter",
+					"match": "\\b(edit|tcar|objp)\\b"
+				},
+				{
+					"comment": "Object Property",
+					"name": "variable.other",
+					"match": "\\b(rest|size)\\b"
+				},
+				{
+					"comment": "General Object",
+					"name": "variable.other",
+					"match": "\\b(cls2|liml|limt|actv|slim|rndv|bble)\\b"
+				},
+				{
+					"comment": "Exection Flow",
+					"name": "keyword.control",
+					"match": "\\b(escn)\\b"
+				},
+				{
+					"comment": "Movement",
+					"name": "varable.other",
+					"match": "\\b(prld|base)\\b"
+				},
+				{
+					"comment": "Object Communication",
+					"name": "variable.other",
+					"match": "\\b(mesg shou|mesg sign|mesg tact|stm# shou|stm# sign|stm# tact|stm# writ)\\b"
+				},
+				{
+					"comment": "Room Based",
+					"name": "variable.other",
+					"match": "\\b(temp|lite|radn|ontr|intr|pres|wndx|wndy|hsrc|psrc|lsrc|rsrc|rmno|rmn#|rmnd|rmnr|wldw|wldh|teco|obst|obdt|obsv|flor|rms#|grnd|isar)\\b"
+				},
+				{
+					"comment": "World",
+					"name": "variable.other",
+					"match": "\\b(seav|asea|tmod|eggl|hatl)\\b"
+				},
+				{
+					"comment": "Compound",
+					"name": "variable.other",
+					"match": "\\b(spot|knob|kmsg)\\b"
+				},
+				{
+					"comment": "Vehicle",
+					"name": "variable.other",
+					"match": "\\b(dps2|lacb|xvec|yvec|bump|tele)\\b"
+				},
+				{
+					"comment": "Blackboard",
+					"name": "variable.other",
+					"match": "\\b(bbd: vocb|bbd: vcb1|bbd: word|bbd: show|bbd: emit)\\b"
+				},
+				{
+					"comment": "Bubble",
+					"name": "variable.other",
+					"match": "\\b(bbtx|bbt2|bbfd)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"comment": "Flow",
+					"name": "keyword.control",
+					"match": "\\b(scrp|endm|doif|elif|else|endi|ever|goto|gsub|loop|repe|reps|retn|subr|untl|rscr|and)\\b"
+				},
+				{
+					"comment": "Variables",
+					"name": "variable.language",
+					"match": "\\b(absv|acos|adds|addv|andv|asin|atan|avar|char|char|cos_|dele|delg|deln|divv|eame|eamn|ftoi|game|gamn|gnam|itof|lowa|mame|modu|modv|mulv|mvxx|name|namn|negv|notv|orrv|ovxx|rand|read|reaf|rean|reaq|seta|sets|setv|sins|sin_|sqrt|stof|stoi|strl|subs|subv|tan_|targ|type|ufos|uppa|vaxx|vmjr|vmnr|vtos|_p1_|_p2_)\\b"
+				},
+				{
+					"comment": "Agent",
+					"name": "entity.name.function",
+					"match": "\\b(abba|alph|anim|anms|attr|base|bhvr|call|carr|cata|cati|cato|catx|clac|clik|core|dcor|disq|drop|dsee|enum|esee|etch|fltx|flty|fmly|frat|from|gait|gall|gall|gnus|hand|hand|held|hght|iitt|imsk|kill|mesg writ|mesg wrt+|mira|mira|mows|mthx|mthy|ncls|new: simp|next|nohh|null|over|ownr|paus|paus|pcls|plne|plne|pntr|posb|pose|pose|posl|posr|post|posx|posy|puhl|puhl|pupt|rnge|rtar|seee|show|spcs|star|tcor|tick|tino|tint|tint|totl|touc|tran|ttar|twin|ucln|visi|wdth|wild|_it_)\\b"
+				},
+				{
+					"comment": "Debug",
+					"name": "support.function",
+					"match": "\\b(agnt|apro|bang|code|codf|codg|codp|cods|dbg#|dbg: asrt|dbg: cpro|dbg: flsh|dbg: html|dbg: outs|dbg: outv|dbg: paws|dbg: play|dbg: poll|dbg: prof|dbg: tack|dbg: tock|dbg: wtik|dbga|heap|help|mann|memx|paws|tack|unid)\\b"
+				},
+				{
+					"comment": "Brain",
+					"name": "entity.name.function",
+					"match": "\\b(adin|brn: dmpb|brn: dmpd|brn: dmpl|brn: dmpn|brn: dmpt|brn: setd|brn: setl|brn: setn|brn: sett|doin)\\b"
+				},
+				{
+					"comment": "Camera",
+					"name": "entity.name.function",
+					"match": "\\b(bkgd|brmi|cmra|cmrp|cmrt|cmrx|cmry|frsh|line|loft|meta|scam|snap|snax|trck|trck|wdow|wndb|wndh|wndl|wndr|wndt|wndw|zoom)\\b"
+				},
+				{
+					"comment": "CD Player",
+					"name": "entity.name.function",
+					"match": "\\b(_cd_ ejct|_cd_ frqh|_cd_ frql|_cd_ frqm|_cd_ init|_cd_ paws|_cd_ play|_cd_ shut|_cd_ stop)\\b"
+				},
+				{
+					"comment": "Compounds",
+					"name": "entity.name.function",
+					"match": "\\b(fcus|frmt|grpl|grpv|new: comp|npgs|page|part|pat: butt|pat: cmra|pat: dull|pat: fixd|pat: grph|pat: kill|pat: move|pat: text|pnxt|ptxt|ptxt)\\b"
+				},
+				{
+					"comment": "Creatures",
+					"name": "entity.name.function",
+					"match": "\\b(ages|appr|aslp|aslp|attn|body|body|boot|born|bvar|byit|cage|calg|calg|chem|chem|crea|dead|dead|decn|dftx|dfty|dirn|dirn|done|drea|drea|driv|driv|drv!|expr|face|face|face|forf|hair|hhld|injr|ins#|like|limb|loci|loci|ltcy|mate|mind|mind|motr|motr|mvft|new: crag|new: crea|newc|norn|norn|nude|ordr shou|ordr sign|ordr tact|ordr writ|orgf|orgi|orgn|plmd|plmu|sayn|seen|soul|soul|spnl|step|stim shou|stim sign|stim tact|stim writ|sway shou|sway sign|sway tact|sway writ|tage|touc|uftx|ufty|uncs|uncs|urge shou|urge sign|urge tact|urge writ|vocb|walk|wear|zomb|zomb)\\b"
+				},
+				{
+					"comment": "Files",
+					"name": "entity.name.function",
+					"match": "\\b(file glob|file iclo|file iope|file jdel|file oclo|file oflu|file oope|fvwm|innf|inni|innl|inok|outs|outv|outx|webb)\\b"
+				},
+				{
+					"comment": "Genetics",
+					"name": "entity.name.function",
+					"match": "\\b(gene clon|gene cros|gene kill|gene load|gene move|gtos|mtoa|mtoc)\\b"
+				},
+				{
+					"comment": "History",
+					"name": "entity.name.function",
+					"match": "\\b(hist cage|hist coun|hist cros|hist evnt|hist find|hist finr|hist foto|hist foto|hist gend|hist gnus|hist mon1|hist mon2|hist mute|hist name|hist name|hist netu|hist next|hist prev|hist rtim|hist tage|hist type|hist utxt|hist utxt|hist vari|hist wipe|hist wnam|hist wtik|hist wuid|hist wvet|ooww)\\b"
+				},
+				{
+					"comment": "Input",
+					"name": "entity.name.function",
+					"match": "\\b(clac|clik|hotp|hots|imsk|keyd|mopx|mopy|mous|movx|movy|pure|pure|tran)\\b"
+				},
+				{
+					"comment": "Map",
+					"name": "entity.name.function",
+					"match": "\\b(addb|addm|addr|altr|bkds|cacl|calc|delm|delr|dmap|doca|door|down|emid|emit|erid|gmap|grap|grid|hirp|left|link|link|lorp|mapd|maph|mapk|mapw|mloc|perm|perm|prop|prop|rate|rate|rght|rloc|room|rtyp|torx|tory|_up_)\\b"
+				},
+				{
+					"comment": "Motion",
+					"name": "entity.name.function",
+					"match": "\\b(accg|admp|admp|aero|angl|avel|avel|elas|elas|fall|fdmp|fdmp|flto|frel|fric|fric|fvel|fvel|movs|mvby|mvsf|mvto|obst|relx|rely|rotn|sdmp|sdmp|spin|spin|svel|svel|tmvb|tmvf|tmvt|varc|varc|vecx|vecy|velo|velx|vely|wall)\\b"
+				},
+				{
+					"comment": "Net",
+					"name": "entity.name.function",
+					"match": "\\b(net: erra|net: expo|net: from|net: head|net: hear|net: host|net: line|net: line|net: pass|net: pass|net: rawe|net: ruso|net: stat|net: ulin|net: unik|net: user|net: what|net: whod|net: whof|net: whon|net: whoz|net: writ)\\b"
+				},
+				{
+					"comment": "Ports",
+					"name": "entity.name.function",
+					"match": "\\b(econ|prt: bang|prt: frma|prt: from|prt: inew|prt: itot|prt: izap|prt: join|prt: krak|prt: name|prt: onew|prt: otot|prt: ozap|prt: send)\\b"
+				},
+				{
+					"comment": "Resources",
+					"name": "entity.name.function",
+					"match": "\\b(net: make|pray agti|pray agts|pray back|pray coun|pray deps|pray expo|pray file|pray fore|pray garb|pray impo|pray injt|pray kill|pray make|pray next|pray prev|pray refr|pray test)\\b"
+				},
+				{
+					"comment": "Scripts",
+					"name": "entity.name.function",
+					"match": "\\b(caos|gids fmly|gids gnus|gids root|gids spcs|inst|ject|lock|scrx|slow|sorc|sorq|stop|stpt|unlk|wait)\\b"
+				},
+				{
+					"comment": "Sounds",
+					"name": "entity.name.function",
+					"match": "\\b(fade|mclr|midi|mmsc|mmsc|mute|rclr|rmsc|rmsc|sezz|sndc|snde|sndl|sndq|stpc|strk|voic|vois|vois|volm|volm)\\b"
+				},
+				{
+					"comment": "Time",
+					"name": "entity.name.function",
+					"match": "\\b(buzz|buzz|date|dayt|etik|hist date|hist sean|hist time|hist year|mont|msec|pace|race|rtif|rtim|scol|sean|time|wolf|wpau|wpau|wtik|year)\\b"
+				},
+				{
+					"comment": "Vehicles",
+					"name": "entity.name.function",
+					"match": "\\b(cabb|cabl|cabn|cabp|cabp|cabr|cabt|cabv|cabv|cabw|dpas|epas|gpas|new: vhcl|rpas|spas)\\b"
+				},
+				{
+					"comment": "World",
+					"name": "entity.name.function",
+					"match": "\\b(delw|load|nwld|pswd|pswd|quit|rgam|save|tntw|wnam|wnti|wrld|wrld|wtnt|wuid)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.caos",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.caos",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.caos"
+}

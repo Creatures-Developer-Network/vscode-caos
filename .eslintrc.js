@@ -1,0 +1,18 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  },
+  env: {
+    node: true,
+  },
+  rules: {
+    semi: 'error',
+    'no-extra-semi': 'warn',
+    curly: 'warn',
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
+    eqeqeq: 'error',
+    indent: ['error', 2],
+  },
+};

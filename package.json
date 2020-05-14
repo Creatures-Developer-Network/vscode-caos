@@ -1,0 +1,76 @@
+{
+  "name": "vscode-caos",
+  "displayName": "vscode-caos",
+  "description": "CAOS Syntax Highlighting",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:caos"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "CAOSLanguageServer",
+      "properties": {
+        "CAOSLanguage.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "CAOSLanguage.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "caos",
+        "aliases": [
+          "CAOS",
+          "caos"
+        ],
+        "extensions": [
+          ".cos",
+          ".cosp"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "caos",
+        "scopeName": "source.caos",
+        "path": "./syntaxes/caos.tmLanguage.json"
+      }
+    ]
+  },
+  "main": "./client/out/extension",
+  "devDependencies": {
+    "@types/node": "^14.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "eslint": "^7.0.0",
+    "typescript": "^3.9.2"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "cd client && tsc && cd ../server && tsc && cd .. && tsc",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+  }
+}
