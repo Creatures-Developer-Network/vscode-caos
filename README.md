@@ -5,3 +5,5 @@ CAOS syntax highlighter and future intellisense / documentation provider extensi
 Initially based on KeyboardInterrupt's Submlime Text tmLanguage
 
 https://github.com/KeyboardInterrupt/sublime-caos-syntax
+
+![Screenshot](screenshot.png)
